@@ -1,1 +1,13 @@
-@Model.GetTamagotchi()
+
+<h1>@Model.GetName()'s Stats</h1>
+<p>Health: </p>@Model.GetHealth()
+<form action="heal" method="post">
+<button type="submit" name="heal">Heal!</button>
+</form>
+<p>Hunger: </p>@Model.GetFood()
+<form action="feed" method="post">
+<button type="submit" name="feed">Feed!</button>
+</form>
+<form action="play" method="post">
+<p>Play: </p>@Model.GetSocialize() <button type="submit" name="play">Play!</button>
+</form>

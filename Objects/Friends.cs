@@ -9,7 +9,7 @@ namespace Friends.Objects
     private int _health;
     private int _food;
     private int _socialize;
-    private int _id;
+    // private int _id;
     // private static List<Tamagotchi> _instances = new List<Tamagotchi> {};
 
     public Tamagotchi (string name)
@@ -61,17 +61,28 @@ namespace Friends.Objects
     {
       _socialize = newSocialize;
     }
+    public void HealthUp(int health)
+    {
+      _health+=1;
+    }
+    public void FoodUp(int food)
+    {
+      _food+=1;
+    }
+    public void SocializeUp(int socialize)
+    {
+      _socialize+=1;
+    }
+    //  if(action=="passtime")
+    //  {
+    //    _food-=1;
+    //    _sleep-=1;
+    //    _fun-=1;
+    //  }
+   
     // public int GetId()
     // {
     //   return _id;
-    // }
-    // public static List<Tamagotchi> GetAll()
-    // {
-    //   return _instances;
-    // }
-    // public static Tamagotchi Find(int searchId)
-    // {
-    //   return _instances[searchId-1];
     // }
   }
 }

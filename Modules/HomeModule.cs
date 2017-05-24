@@ -11,13 +11,18 @@ namespace TamagotchiGame
       Get["/"] = _ => {
         return View["index.cshtml"];
       };
-      Post["/pets"] = _ => {
-        Tamagotchi myTamagotchi = new Tamagotchi(Request.Form["new-pet"]);
-        return View["/gameplay.cshtml", myTamagotchi];
+      Get["/name_pet"] = _ => {
+        // myTamagotchi.GetTamagotchi();
+        return View["name_pet.cshtml"];
       };
-      Get["/pets/new/{tamagotchi}"] = parameters => {
-        Tamagotchi.SetTamagotchi(parameters.tamagotchi);
-        return View["new_pet.cshtml"];
+      Post["/pets/select"] = _ => {
+        Tamagotchi myTamagotchi = new Tamagotchi(Request.Form["new-pet-name"]);
+        return View["gameplay.cshtml", myTamagotchi];
+      };
+      Post["pets/heal"] = _health => {
+        Tamagotchi myTamagotchi = new Tamagotchi(Request.Form["heal"]);
+        myTamagotchi.HealthUp(_health);
+        return View["gameplay.cshtml", myTamagotchi];
       };
     }
   }
