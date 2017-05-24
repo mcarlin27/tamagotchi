@@ -2,7 +2,7 @@ using Nancy;
 using Friends.Objects;
 using System.Collections.Generic;
 
-namespace Tamagotchi
+namespace TamagotchiGame
 {
   public class HomeModule : NancyModule
   {
@@ -11,12 +11,14 @@ namespace Tamagotchi
       Get["/"] = _ => {
         return View["index.cshtml"];
       };
-      Get["/pets"] = _ => {
-        Tamagotchi newTamagotchi = new Tamagotchi (Request.Form["new-pet"]);
-        return View["/pet.cshtml", newTamagotchi];
+      Post["/pets"] = _ => {
+        Tamagotchi myTamagotchi = new Tamagotchi(Request.Form["new-pet"]);
+        return View["/gameplay.cshtml", myTamagotchi];
       };
-      
-
+      Get["/pets/new/{tamagotchi}"] = parameters => {
+        Tamagotchi.SetTamagotchi(parameters.tamagotchi);
+        return View["new_pet.cshtml"];
+      };
     }
   }
 }

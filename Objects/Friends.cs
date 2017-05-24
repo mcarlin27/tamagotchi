@@ -5,20 +5,21 @@ namespace Friends.Objects
   public class Tamagotchi
   {
     private string _name;
+    private static string _tamagotchi;
     private int _health;
     private int _food;
     private int _socialize;
     private int _id;
-    private static List<Tamagotchi> _instances = new List<Tamagotchi> {};
+    // private static List<Tamagotchi> _instances = new List<Tamagotchi> {};
 
     public Tamagotchi (string name)
     {
-      _name = name;
       _health = 10;
       _food = 10;
       _socialize = 10;
-      _instances.Add(this);
-      _id = _instances.Count;
+      _name = name;
+      // _instances.Add(this);
+      // _id = _instances.Count;
     }
     public string GetName()
     {
@@ -27,6 +28,14 @@ namespace Friends.Objects
     public void SetName(string newName)
     {
       _name = newName;
+    }
+    public string GetTamagotchi()
+    {
+      return _tamagotchi;
+    }
+    public static void SetTamagotchi(string newType)
+    {
+      _tamagotchi = newType;
     }
     public int GetHealth()
     {
@@ -52,17 +61,17 @@ namespace Friends.Objects
     {
       _socialize = newSocialize;
     }
-    public int GetId()
-    {
-      return _id;
-    }
-    public static List<Tamagotchi> GetAll()
-    {
-      return _instances;
-    }
-    public static Tamagotchi Find(int searchId)
-    {
-      return _instances[searchId-1];
-    }
+    // public int GetId()
+    // {
+    //   return _id;
+    // }
+    // public static List<Tamagotchi> GetAll()
+    // {
+    //   return _instances;
+    // }
+    // public static Tamagotchi Find(int searchId)
+    // {
+    //   return _instances[searchId-1];
+    // }
   }
 }
